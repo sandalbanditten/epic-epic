@@ -6,6 +6,6 @@ function draw() {
 	background(220);
 }
 
-function windowResized {
+function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
