@@ -16,7 +16,7 @@ class Player {
       this.posY += this.speed;
     }
       
-    if(collisionCheck()) {
+    if(this.collisionCheck()) {
       this.lives--;
     }
     this.isDead();
