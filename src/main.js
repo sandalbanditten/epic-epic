@@ -4,6 +4,7 @@ function setup() {
 
 function draw() {
 	background(220,0,0);
+	showUi('balls', 'cock', width, height);
 }
 
 function windowResized() {
