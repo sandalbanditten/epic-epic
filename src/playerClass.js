@@ -19,7 +19,7 @@ class Player {
         if(collisionCheck()) {
             this.lives--;
         }
-        isDead();
+        this.isDead();
     }
 
     collisionCheck() {
