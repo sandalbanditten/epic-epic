@@ -8,22 +8,22 @@ class Player {
     }
 
     update() {
-        circle(posX - size/2, posY - size/2, size);
+        circle(this.posX - this.size/2, this.posY - this.size/2, this.size);
         if(keyIsDown(87)) {
-            posY -= speed;
+            this.posY -= this.speed;
         }
         if(keyIsDown(83)) {
-            posY += speed;
+            this.posY += this.speed;
         }
         
         if(collisionCheck()) {
-            lives--;
+            this.lives--;
         }
         isDead();
     }
 
     collisionCheck() {
-        if(dist(mouseX, mouseY, posX, posY) <= size/2) {
+        if(dist(mouseX, mouseY, this.posX, this.posY) <= this.size/2) {
           return true;
         } else {
           return false;
@@ -31,7 +31,7 @@ class Player {
     }
 
     isDead() {
-        if(lives <= 0) {
+        if(this.lives <= 0) {
           return true;
         } else {
           return false;
