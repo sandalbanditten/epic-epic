@@ -14,4 +14,12 @@ class Projectile
 
     this.speed = 5;
   }
+
+  show()
+  {
+    push();
+    fill(123, 44, 191);
+    circle(this.x, this.y, this.diameter);
+    pop();
+  }
 }
