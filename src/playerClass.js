@@ -1,8 +1,8 @@
 class Player {
-  constructor(width, heigth, speed, size, lives) {
+  constructor(width, height, speed, size, lives) {
     this.size = size;
     this.posX = width - this.size/2;
-    this.posY = heigth - this.size/2;
+    this.posY = height - this.size/2;
     this.speed = speed;
     this.lives = lives;
   }
@@ -22,6 +22,7 @@ class Player {
     this.isDead();
 
     this.posX = width - this.size/2
+    this.posY = Math.min(Math.max(this.posY, 0), height);
   }
 
   collisionCheck() {
