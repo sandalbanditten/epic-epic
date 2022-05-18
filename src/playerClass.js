@@ -2,7 +2,7 @@ class Player {
   constructor(width, height, speed, size, lives) {
     this.diameter = size;
     this.posX = width - this.radius();
-    this.posY = height - this.radius();
+    this.posY = height/2 - this.radius();
     this.speed = speed;
     this.lives = lives;
   }
@@ -20,16 +20,14 @@ class Player {
     }
     this.isDead();
 
-    this.posX = width - this.radius();
+    this.posX = width - this.diameter;
     this.posY = Math.min(Math.max(this.posY, 0 + this.radius()), height - this.radius());
   }
 
   show() {
     push();
-
     fill(157, 78, 221);
     circle(this.posX, this.posY, this.diameter);
-
     pop();
   }
 
