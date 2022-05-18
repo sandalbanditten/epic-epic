@@ -5,7 +5,7 @@ function setup() {
 	noStroke();
   player = new Player(width, height, 3, size, 3);
 
-  //requires a "size" variable
+  // requires a "size" variable
   projLine = new ProjLine(size);
 }
 
