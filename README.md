@@ -12,4 +12,4 @@ The library p5js (the two files `p5.js` `p5.sound.js`) is licensed under the LGP
 This software is licensed under the [MIT License](https://mit-license.org/).
 
 ## Try it out
-Try it [here](./src/index.html)
+TODO!
