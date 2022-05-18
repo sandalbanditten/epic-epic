@@ -1,6 +1,8 @@
+const diameter = 30;
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	player = new Player(width, height, 3, 20, 3);
+	player = new Player(width, height, 3, diameter, 3);
 	projLine = new ProjLine();
 }
 
