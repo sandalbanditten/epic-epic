@@ -20,11 +20,22 @@ function draw() {
     enemies[i].show();
     if (enemies[i].x > width + enemies[i].diameter / 2) {
       enemies.shift();
+      switch(enemies[i].type) {
+        case 'liniar': {
+          player.score += 100;
+          break;
+        }
+        case 'exponential': {
+          player.score += 150;
+          break;
+        }
+        default: break;
+      }
     }
     player.collision(enemies[i]);
   }
 
-  if (frameCount % 15 == 0) {
+  if (frameCount % 30 == 0) {
     switch(Math.floor(random(0, 100)) % 2) {
       case 0: {
         enemies.push(new Liniar(size, 'liniar', 5));

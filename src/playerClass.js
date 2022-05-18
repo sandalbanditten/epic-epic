@@ -1,5 +1,6 @@
 class Player {
   constructor(width, height, speed, size, lives) {
+    this.score = 0;
     this.diameter = size;
     this.speed = speed;
     this.lives = lives;
@@ -14,33 +15,25 @@ class Player {
     let size = this.diameter * this.lives;
 
     //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward
-    if(keyIsDown(87) && !keyIsDown(16)) {
+    if(keyIsDown(87)) {
       this.posY -= this.speed;
     }
     //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes
-    if(keyIsDown(83) && !keyIsDown(16)) {
+    if(keyIsDown(83)) {
       this.posY += this.speed;
     }
-    //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward - with shift for more speed
-    if(keyIsDown(87) && keyIsDown(16)) {
-      this.posY -= 2 * this.speed;
-    }
-    //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes - with shift for more speed
-    if(keyIsDown(83) && keyIsDown(16)) {
-      this.posY += 2 * this.speed;
-    }
 
-    if(keyIsDown(32)) {
-      if(!keyIsDown(87) && !keyIsDown(83)) {
-        this.posY = height / 2;
-      }
-      if(keyIsDown(87)) {
-        this.posY = 0 + size;
-      }
-      if(keyIsDown(83)) {
-        this.posY = height - size;
-      }
-    }
+    // if(keyIsDown(32)) {
+    //   if(!keyIsDown(87) && !keyIsDown(83)) {
+    //     this.posY = height / 2;
+    //   }
+    //   if(keyIsDown(87)) {
+    //     this.posY = 0 + size;
+    //   }
+    //   if(keyIsDown(83)) {
+    //     this.posY = height - size;
+    //   }
+    // }
 
     //when colission is true take a life
     this.isDead();
@@ -68,6 +61,10 @@ class Player {
   collision(enemy) {
     if(dist(enemy.x, enemy.y, this.posX, this.posY) <= this.radius() * this.lives) {
       this.lives--;
+      this.score -= 1000;
+      if (this.score < 0) {
+        this.score = 0;
+      }
       background(255, 41, 117);
       enemies.splice(enemies.indexOf(enemy), 1);
 
