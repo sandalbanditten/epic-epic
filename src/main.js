@@ -40,7 +40,7 @@ function draw() {
   player.update();
   player.show();
 
-  showUi(player, enemies[enemies.length - 1], width, height);
+  showUi(player, width, height);
 }
 
 function windowResized() {
