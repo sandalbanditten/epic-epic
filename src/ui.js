@@ -14,7 +14,7 @@ function showStats(player, width, height) {
 	textAlign(RIGHT, CENTER);
 	text(`Score: ${player.score}`, width - 10, 20 * 1);
 	text(`Speed: ${player.speed}`, width - 10, 20 * 2);
-	text(`Size: ${player.size}`, width - 10, 20 * 3);
+	text(`Size: ${player.diameter}`, width - 10, 20 * 3);
 	text(`HP: ${player.lives}`, width - 10, 20 * 4);
 	pop();
 
