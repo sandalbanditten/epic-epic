@@ -24,10 +24,16 @@ function draw() {
   }
 
   if (frameCount % 60 == 0) {
-    if (Math.floor(random(0, 10)) % 2 == 0) {
-      enemies.push(new Liniar(size, 'liniar', 5));
-    } else {
-      enemies.push(new Exponential(size, 'exponential', 5));
+    switch(Math.floor(random(0, 100)) % 2) {
+      case 0: {
+        enemies.push(new Liniar(size, 'liniar', 5));
+        break;
+      }
+      case 1: {
+        enemies.push(new Exponential(size, 'exponential', 5));
+        break;
+      }
+      default: break;
     }
   }
 
