@@ -6,7 +6,7 @@ function setup() {
 	player = new Player(width, height/2, 3, 20, 3);
 
 	//requires a "size" variable
-	projLine = new ProjLine();
+	projLine = new ProjLine(size);
 }
 
 function draw() {
