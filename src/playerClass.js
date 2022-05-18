@@ -24,6 +24,8 @@ class Player {
 
     //just updates the position in case the window has changed size
     let size = this.radius() * 4;
+    // Playerspeed is dependent on the size
+    this.speed = map(this.lives, 0, 5, 10, 0);
     this.posX = width - size;
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
@@ -34,7 +36,6 @@ class Player {
     // fill(157, 78, 221);
     noFill();
     stroke(0, 218, 255);
-    // strokeWeight(map(this.lives, 0, 3, 9, 3));
     strokeWeight(this.lives * 2);
     for (let i = 1; i <= this.lives; i++) {
       circle(this.posX, this.posY, this.diameter * i);
