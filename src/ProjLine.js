@@ -32,5 +32,10 @@ class ProjLine
 
 
     this.x += this.speed;
+
+    if(this.x > width + this.diameter)
+    {
+        this.x = 0 - this.diameter;
+    } 
   }
 }
