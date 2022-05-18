@@ -11,7 +11,7 @@ class ProjLine
         this.y1 = random(0 + this.diameter/2, height - this.diameter/2);
         this.y2 = random(0 + this.diameter/2, height - this.diameter/2);
 
-        this.speed = 3;
+        this.speed = 5;
     }
 
     show() 
