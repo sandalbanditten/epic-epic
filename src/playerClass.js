@@ -30,7 +30,10 @@ class Player {
   //visualisation of the fucker
   show() {
     push();
-    fill(157, 78, 221);
+    // fill(157, 78, 221);
+    noFill();
+    stroke(157, 78, 221);
+    strokeWeight(3);
     circle(this.posX, this.posY, this.diameter);
     pop();
   }
