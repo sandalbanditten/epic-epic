@@ -22,8 +22,8 @@ function showStats(player, width, height) {
 function showEnemyStats(enemy, width, height) {
   push();
   textAlign(RIGHT, CENTER);
-  // text(`Enemy type: ${enemy.type}`, width / 2 - 10, 20 * 1);
-  // text(`Enemy speed: ${enemy.speed}`, width / 2 - 10, 20 * 2);
-  // text(`Enemy size: ${enemy.diameter.toFixed(0)}`, width / 2 - 10, 20 * 3);
+  text(`Enemy type: ${enemy.type}`, width / 2 - 10, 20 * 1);
+  text(`Enemy speed: ${enemy.speed}`, width / 2 - 10, 20 * 2);
+  text(`Enemy size: ${enemy.diameter.toFixed(0)}`, width / 2 - 10, 20 * 3);
   pop();
 }
