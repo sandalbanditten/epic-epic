@@ -1,14 +1,18 @@
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	projLine = new ProjLine()
+	player = new Player(width, height/2, 3, 20, 3);
+	projLine = new ProjLine();
 }
 
 function draw() {
 	background(220,0,0);
+
+	player.update();
+
 	showUi('balls', 'cock', width, height);
 
-	fill(0,0,255)
-	projLine.show()
+	fill(0,0,255);
+	projLine.show();
 }
 
 function windowResized() {
