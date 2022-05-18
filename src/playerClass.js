@@ -14,7 +14,6 @@ class Player {
     if(keyIsDown(83)) {
       this.posY += this.speed;
     }
-    
 
     if(this.collisionCheck()) {
       this.lives--;
