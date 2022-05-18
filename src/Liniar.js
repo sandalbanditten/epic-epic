@@ -1,4 +1,4 @@
-class ProjLine extends Projectile
+class Liniar extends Enemy
 {
   constructor(size)
   {

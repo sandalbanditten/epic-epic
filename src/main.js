@@ -6,7 +6,7 @@ function setup() {
   player = new Player(width, height, 3, size, 3);
 
   // requires a "size" variable
-  projLine = new ProjLine(size);
+  liniar = new Liniar(size);
 }
 
 function draw() {
@@ -14,10 +14,10 @@ function draw() {
 
   player.update();
   player.show();
-  projLine.show();
-  projLine.update();
+  liniar.show();
+  liniar.update();
 
-  showUi(player, projLine, width, height);
+  showUi(player, liniar, width, height);
 }
 
 function windowResized() {

@@ -1,4 +1,4 @@
-class Projectile
+class Enemy
 {
   constructor(size)
   {
