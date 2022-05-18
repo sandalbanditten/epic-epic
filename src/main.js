@@ -3,6 +3,9 @@ const diameter = 30;
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	player = new Player(width, height, 3, diameter, 3);
+	player = new Player(width, height/2, 3, 20, 3);
+
+	//requires a "size" variable
 	projLine = new ProjLine();
 }
 
@@ -13,7 +16,6 @@ function draw() {
 
 	showUi(player, 'cock', width, height);
 
-	fill(0,0,255);
 	projLine.show();
 }
 
