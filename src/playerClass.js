@@ -4,7 +4,7 @@ class Player {
     this.speed = speed;
     this.lives = lives;
     this.posX = width - this.diameter * this.lives;
-    this.posY = height/2 - this.radius();
+    this.posY = height / 2 - this.radius();
   }
 
   update() {
@@ -35,7 +35,7 @@ class Player {
     noFill();
     stroke(0, 218, 255);
     // strokeWeight(map(this.lives, 0, 3, 9, 3));
-    strokeWeight(this.lives + 2);
+    strokeWeight(this.lives * 2);
     for (let i = 1; i <= this.lives; i++) {
       circle(this.posX, this.posY, this.diameter * i);
     }
