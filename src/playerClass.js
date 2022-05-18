@@ -22,7 +22,7 @@ class Player {
     this.isDead();
 
     this.posX = width - this.radius();
-    this.posY = Math.min(Math.max(this.posY, 0 + this.radius()), height - this.size/2);
+    this.posY = Math.min(Math.max(this.posY, 0 + this.radius()), height - this.radius());
   }
 
   collisionCheck() {
