@@ -23,7 +23,7 @@ function draw() {
     player.collision(enemies[i]);
   }
 
-  if (frameCount % 60 == 0) {
+  if (frameCount % 15 == 0) {
     switch(Math.floor(random(0, 100)) % 2) {
       case 0: {
         enemies.push(new Liniar(size, 'liniar', 5));
