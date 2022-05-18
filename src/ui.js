@@ -22,13 +22,8 @@ function showStats(player, width, height) {
 
 function showEnemyStats(enemy, width, height) {
 	push();
-	// Temporary shit v
-	// these should eventually come from the enemy and player inputtet i main
-	let type = "liniar";
-	let speed = 3;
 	textAlign(LEFT, CENTER);
 	text(`Enemy type: ${type}`, 10, 20 * 1);
 	text(`Enemy speed: ${speed}`, 10, 20 * 2);
-	// Temporary shit ^
 	pop();
 }

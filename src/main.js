@@ -16,7 +16,7 @@ function draw() {
 	projLine.show();
 	projLine.update();
 
-	showUi(player, 'cock', width, height);
+	showUi(player, projLine, width, height);
 }
 
 function windowResized() {
