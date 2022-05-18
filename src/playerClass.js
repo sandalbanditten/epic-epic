@@ -8,7 +8,6 @@ class Player {
   }
 
   update() {
-    circle(this.posX, this.posY, this.diameter);
     if(keyIsDown(87)) {
       this.posY -= this.speed;
     }
@@ -24,6 +23,14 @@ class Player {
     this.posX = width - this.radius();
     this.posY = Math.min(Math.max(this.posY, 0 + this.radius()), height - this.radius());
   }
+
+	show() {
+		push();
+
+    circle(this.posX, this.posY, this.diameter);
+
+		pop();
+	}
 
   collisionCheck() {
     if(dist(mouseX, mouseY, this.posX, this.posY) <= this.radius()) {
