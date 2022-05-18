@@ -23,7 +23,7 @@ function showStats(player, width, height) {
 function showEnemyStats(enemy, width, height) {
 	push();
 	textAlign(LEFT, CENTER);
-	text(`Enemy type: ${type}`, 10, 20 * 1);
-	text(`Enemy speed: ${speed}`, 10, 20 * 2);
+	text(`Enemy type: ${enemy.type}`, 10, 20 * 1);
+	text(`Enemy speed: ${enemy.speed}`, 10, 20 * 2);
 	pop();
 }
