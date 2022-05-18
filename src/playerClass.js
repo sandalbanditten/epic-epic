@@ -41,13 +41,10 @@ class Player {
     }
 
     //when colission is true take a life
-    if(this.collisionCheck()) {
-      this.lives--;
-    }
     this.isDead();
 
     // Playerspeed is dependent on the size
-    this.speed = map(this.lives, 0, 5, 30, 0);
+    this.speed = map(this.lives, 1, 5, 30, 0);
     this.posX = width - size;
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
@@ -66,8 +63,10 @@ class Player {
   }
 
   //oooohh wow, look it knows if it's colliding, how cool is that
-  collisionCheck() {
-    if(dist(mouseX, mouseY, this.posX, this.posY) <= this.radius() * this.lives) {
+  collision(enemy) {
+    if(dist(enemy.x, enemy.y, this.posX, this.posY) <= this.radius() * this.lives) {
+      this.lives--;
+      enemies.splice(enemy.id, 1);
       return true;
     } else {
       return false;
