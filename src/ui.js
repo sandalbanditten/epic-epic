@@ -10,20 +10,18 @@ function showUi(player, enemy, width, height) {
 }
 
 function showStats(player, width, height) {
-	// text(`HP: ${player.health}`, 8, 16);
-	// text(`Score: ${player.score}`, 8, 16 * 2);
-	// Temporary shit v
-	// these should eventually come from the enemy and player inputtet i main
+	push();
 	textAlign(RIGHT, CENTER);
 	text(`Score: ${player.score}`, width - 10, 20 * 1);
 	text(`Speed: ${player.speed}`, width - 10, 20 * 2);
-	text(`Size: ${player.size}`, width - 10, 20 * 3);
+	text(`Size: ${player.diameter}`, width - 10, 20 * 3);
 	text(`HP: ${player.lives}`, width - 10, 20 * 4);
-	// Temporary shit ^
+	pop();
 
 }
 
 function showEnemyStats(enemy, width, height) {
+	push();
 	// Temporary shit v
 	// these should eventually come from the enemy and player inputtet i main
 	let type = "liniar";
@@ -32,4 +30,5 @@ function showEnemyStats(enemy, width, height) {
 	text(`Enemy type: ${type}`, 10, 20 * 1);
 	text(`Enemy speed: ${speed}`, 10, 20 * 2);
 	// Temporary shit ^
+	pop();
 }
