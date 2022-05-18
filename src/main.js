@@ -9,7 +9,7 @@ function draw() {
 
 	player.update();
 
-	showUi('balls', 'cock', width, height);
+	showUi(player, 'cock', width, height);
 
 	fill(0,0,255);
 	projLine.show();
