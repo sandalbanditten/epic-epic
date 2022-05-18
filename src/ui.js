@@ -15,14 +15,10 @@ function showStats(player, width, height) {
 	// Temporary shit v
 	// these should eventually come from the enemy and player inputtet i main
 	textAlign(RIGHT, CENTER);
-	let health = 3;
-	let score = 2000;
-	let size = 20;
-	let speed = 3;
-	text(`Score: ${score}`, width - 10, 20 * 1);
-	text(`Speed: ${speed}`, width - 10, 20 * 2);
-	text(`Size: ${size}`, width - 10, 20 * 3);
-	text(`HP: ${health}`, width - 10, 20 * 4);
+	text(`Score: ${player.score}`, width - 10, 20 * 1);
+	text(`Speed: ${player.speed}`, width - 10, 20 * 2);
+	text(`Size: ${player.size}`, width - 10, 20 * 3);
+	text(`HP: ${player.lives}`, width - 10, 20 * 4);
 	// Temporary shit ^
 
 }
