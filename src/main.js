@@ -5,8 +5,8 @@ function setup() {
 	noStroke();
   player = new Player(width, height, 3, size, 3);
 
-  // requires a "size" variable
-  liniar = new Liniar(size);
+  // requires a size, type and speed variables
+  liniar = new Liniar(size, 'liniar', 5);
 }
 
 function draw() {

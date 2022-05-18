@@ -1,6 +1,6 @@
 class Liniar extends Enemy
 {
-  constructor(size)
+  constructor(size, type, speed)
   {
     super(size);
   }
@@ -11,7 +11,6 @@ class Liniar extends Enemy
     this.b = this.y1;
 
     this.y = this.a * this.x + this.b;
-
     this.x += this.speed;
   }
 }
