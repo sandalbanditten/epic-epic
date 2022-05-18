@@ -42,6 +42,6 @@ class Player {
   }
 
 	radius() {
-		return this.diameter / 2
+		return this.diameter / 2;
 	}
 }
