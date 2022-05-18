@@ -7,6 +7,7 @@ function setup() {
 
   // requires a size, type and speed variables
   liniar = new Liniar(size, 'liniar', 5);
+  exponential = new Exponential(size, 'exponential', 5);
 }
 
 function draw() {
@@ -16,6 +17,8 @@ function draw() {
   player.show();
   liniar.show();
   liniar.update();
+  exponential.show();
+  exponential.update();
 
   showUi(player, liniar, width, height);
 }
