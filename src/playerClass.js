@@ -3,13 +3,15 @@ class Player {
     this.diameter = size;
     this.speed = speed;
     this.lives = lives;
+    this.startingLives = lives;
     this.posX = width - this.diameter * this.lives;
     this.posY = height / 2 - this.radius();
   }
 
   update() {
     //just updates the position in case the window has changed size
-    let size = this.radius() * 4;
+    let startingSize = this.diameter * this.startingLives;
+    let size = this.diameter * this.lives;
 
     //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward
     if(keyIsDown(87) && !keyIsDown(16)) {
@@ -41,14 +43,11 @@ class Player {
     }
 
     //when colission is true take a life
-    if(this.collisionCheck()) {
-      this.lives--;
-    }
     this.isDead();
 
     // Playerspeed is dependent on the size
-    this.speed = map(this.lives, 0, 5, 30, 0);
-    this.posX = width - size;
+    this.speed = map(this.lives, 1, this.startingLives, 30, 1);
+    this.posX = width - startingSize;
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
 
@@ -66,8 +65,10 @@ class Player {
   }
 
   //oooohh wow, look it knows if it's colliding, how cool is that
-  collisionCheck() {
-    if(dist(mouseX, mouseY, this.posX, this.posY) <= this.radius() * this.lives) {
+  collision(enemy) {
+    if(dist(enemy.x, enemy.y, this.posX, this.posY) <= this.radius() * this.lives) {
+      this.lives--;
+      enemies.splice(enemy.id, 1);
       return true;
     } else {
       return false;
