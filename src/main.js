@@ -2,6 +2,7 @@ const size = 30;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+	noStroke();
   player = new Player(width, height, 3, size, 3);
 
   //requires a "size" variable
