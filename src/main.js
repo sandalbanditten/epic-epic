@@ -3,7 +3,7 @@ const size = 30;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 	noStroke();
-  player = new Player(width, height, 3, size, 3);
+  player = new Player(width, height, 10, size, 3);
 
   // requires a size, type and speed variables
   liniar = new Liniar(size, 'liniar', 5);

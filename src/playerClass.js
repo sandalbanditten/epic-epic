@@ -9,13 +9,27 @@ class Player {
 
   update() {
     //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward
-    if(keyIsDown(87)) {
+    if(keyIsDown(87) && !keyIsDown(16)) {
       this.posY -= this.speed;
     }
     //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes
-    if(keyIsDown(83)) {
+    if(keyIsDown(83) && !keyIsDown(16)) {
       this.posY += this.speed;
     }
+    //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward - with shift for more speed
+    if(keyIsDown(87) && keyIsDown(16)) {
+      this.posY -= 2 * this.speed;
+    }
+    //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes - with shift for more speed
+    if(keyIsDown(83) && keyIsDown(16)) {
+      this.posY += 2 * this.speed;
+    }
+
+    if(keyIsDown(32)) {
+      if(keyIsDown(17))
+      this.posY = height / 2;
+    }
+
     //when colission is true take a life
     if(this.collisionCheck()) {
       this.lives--;
@@ -25,7 +39,7 @@ class Player {
     //just updates the position in case the window has changed size
     let size = this.radius() * 4;
     // Playerspeed is dependent on the size
-    this.speed = map(this.lives, 0, 5, 10, 0);
+    this.speed = map(this.lives, 0, 5, 30, 0);
     this.posX = width - size;
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
