@@ -5,7 +5,7 @@ let enemies = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
-  player = new Player(width, height, 10, size, 3);
+  player = new Player(width, height, 10, size, 5);
 
   // requires a size, type and speed variables
   enemies.push(new Liniar(size, 'liniar', 5));

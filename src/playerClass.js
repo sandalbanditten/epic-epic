@@ -3,13 +3,14 @@ class Player {
     this.diameter = size;
     this.speed = speed;
     this.lives = lives;
+    this.startingLives = lives;
     this.posX = width - this.diameter * this.lives;
     this.posY = height / 2 - this.radius();
   }
 
   update() {
     //just updates the position in case the window has changed size
-    let size = this.radius() * 4;
+    let size = this.diameter * this.startingLives;
 
     //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward
     if(keyIsDown(87) && !keyIsDown(16)) {
@@ -44,7 +45,7 @@ class Player {
     this.isDead();
 
     // Playerspeed is dependent on the size
-    this.speed = map(this.lives, 1, 5, 30, 0);
+    this.speed = map(this.lives, 1, this.startingLives, 30, 1);
     this.posX = width - size;
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
