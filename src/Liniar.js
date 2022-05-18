@@ -2,7 +2,7 @@ class Liniar extends Enemy
 {
   constructor(size, type, speed)
   {
-    super(size);
+    super(size, type, speed);
   }
 
   update()
