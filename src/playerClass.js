@@ -69,7 +69,7 @@ class Player {
     if(dist(enemy.x, enemy.y, this.posX, this.posY) <= this.radius() * this.lives) {
       this.lives--;
       background(255, 41, 117);
-      enemies.splice(enemy.id, 1);
+      enemies.splice(enemies.indexOf(enemy), 1);
 
       // CSS SHIT
       const shakeElement = document.body;

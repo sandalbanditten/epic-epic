@@ -17,7 +17,7 @@ function draw() {
   for (let i = 0; i < enemies.length; i++) {
     enemies[i].update();
     enemies[i].show();
-    if (enemies[i].x > width) {
+    if (enemies[i].x > width + enemies[i].diameter / 2) {
       enemies.shift();
     }
     player.collision(enemies[i]);
