@@ -27,6 +27,7 @@ class Player {
 	show() {
 		push();
 
+    fill(157, 78, 221);
     circle(this.posX, this.posY, this.diameter);
 
 		pop();
