@@ -6,13 +6,14 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
   player = new Player(width, height, 10, size, 5);
+  frameRate(60);
 
   // requires a size, type and speed variables
   enemies.push(new Liniar(size, 'liniar', 5));
 }
 
 function draw() {
-  background(4, 4, 51, 40);
+  background(4, 4, 51, 20);
 
   for (let i = 0; i < enemies.length; i++) {
     enemies[i].update();
