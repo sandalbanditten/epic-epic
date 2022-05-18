@@ -1,14 +1,14 @@
 class Player {
-  constructor(posX, posY, speed, size, lives) {
-    this.posX = posX;
-    this.posY = posY;
-    this.speed = speed;
+  constructor(width, heigth, speed, size, lives) {
     this.size = size;
+    this.posX = width - this.size/2;
+    this.posY = heigth - this.size/2;
+    this.speed = speed;
     this.lives = lives;
   }
 
   update() {  
-    circle(this.posX - this.size/2, this.posY - this.size/2, this.size);
+    circle(this.posX, this.posY, this.size);
     if(keyIsDown(87)) {
       this.posY -= this.speed;
     }
@@ -20,6 +20,8 @@ class Player {
       this.lives--;
     }
     this.isDead();
+
+    this.posX = width - this.size/2
   }
 
   collisionCheck() {
