@@ -1,10 +1,10 @@
 class Player {
   constructor(width, height, speed, size, lives) {
     this.diameter = size;
-    this.posX = width - this.radius();
-    this.posY = height/2 - this.radius();
     this.speed = speed;
     this.lives = lives;
+    this.posX = width - this.diameter * this.lives;
+    this.posY = height/2 - this.radius();
   }
 
   update() {
@@ -23,8 +23,9 @@ class Player {
     this.isDead();
 
     //just updates the position in case the window has changed size
-    this.posX = width - this.diameter;
-    this.posY = Math.min(Math.max(this.posY, 0 + this.radius()), height - this.radius());
+    let size = this.radius() * 4;
+    this.posX = width - size;
+    this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
 
   //visualisation of the fucker
@@ -32,15 +33,18 @@ class Player {
     push();
     // fill(157, 78, 221);
     noFill();
-    stroke(157, 78, 221);
-    strokeWeight(3);
-    circle(this.posX, this.posY, this.diameter);
+    stroke(0, 218, 255);
+    // strokeWeight(map(this.lives, 0, 3, 9, 3));
+    strokeWeight(this.lives + 2);
+    for (let i = 1; i <= this.lives; i++) {
+      circle(this.posX, this.posY, this.diameter * i);
+    }
     pop();
   }
 
   //oooohh wow, look it knows if it's colliding, how cool is that
   collisionCheck() {
-    if(dist(mouseX, mouseY, this.posX, this.posY) <= this.radius()) {
+    if(dist(mouseX, mouseY, this.posX, this.posY) <= this.radius() * this.lives) {
       return true;
     } else {
       return false;
