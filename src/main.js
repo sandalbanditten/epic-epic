@@ -8,8 +8,6 @@ function setup() {
   player = new Player(width, height, 10, size, 5);
 
   // requires a size, type and speed variables
-  liniar = new Liniar(size, 'liniar', 5);
-  exponential = new Exponential(size, 'exponential', 5);
   enemies.push(new Liniar(size, 'liniar', 5));
 }
 
@@ -26,15 +24,15 @@ function draw() {
   }
 
   if (frameCount % 60 == 0) {
-    enemies.push(new Liniar(size, 'liniar', 5));
+    if (Math.floor(random(0, 10)) % 2 == 0) {
+      enemies.push(new Liniar(size, 'liniar', 5));
+    } else {
+      enemies.push(new Exponential(size, 'exponential', 5));
+    }
   }
 
   player.update();
   player.show();
-  liniar.show();
-  liniar.update();
-  exponential.show();
-  exponential.update();
 
   showUi(player, enemies[enemies.length - 1], width, height);
 }
