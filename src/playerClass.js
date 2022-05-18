@@ -70,6 +70,14 @@ class Player {
       this.lives--;
       background(255, 41, 117);
       enemies.splice(enemy.id, 1);
+
+      // CSS SHIT
+      const shakeElement = document.body;
+      shakeElement?.classList.remove('shake');
+      void shakeElement?.offsetWidth; // Funky trick to allow the screen shake
+      shakeElement?.classList.add('shake');
+      // CSS SHIT
+
       return true;
     } else {
       return false;

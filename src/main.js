@@ -12,7 +12,7 @@ function setup() {
 }
 
 function draw() {
-  background(16, 0, 43, 40);
+  background(4, 4, 51, 40);
 
   for (let i = 0; i < enemies.length; i++) {
     enemies[i].update();
