@@ -68,6 +68,7 @@ class Player {
   collision(enemy) {
     if(dist(enemy.x, enemy.y, this.posX, this.posY) <= this.radius() * this.lives) {
       this.lives--;
+      background(255, 41, 117);
       enemies.splice(enemy.id, 1);
       return true;
     } else {
@@ -78,6 +79,7 @@ class Player {
   //what!?!?! it also knows if it's dead?!?!?!
   isDead() {
     if(this.lives <= 0) {
+      // TODO
       return true;
     } else {
       return false;
