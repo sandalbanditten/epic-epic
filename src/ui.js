@@ -1,7 +1,6 @@
 function showUi(player, enemy, width, height) {
   push();
-  stroke(255, 255, 255);
-  fill(255, 255, 255);
+  fill(255, 144, 31);
   textSize(20);
 
   showStats(player, width, height);
