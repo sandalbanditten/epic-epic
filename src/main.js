@@ -35,14 +35,14 @@ function draw() {
     player.collision(enemies[i]);
   }
 
-  if (frameCount % 30 == 0) {
+  if (frameCount % 20 == 0) {
     switch(Math.floor(random(0, 100)) % 2) {
       case 0: {
-        enemies.push(new Liniar(size, 'liniar', 5));
+        enemies.push(new Liniar(size, 'liniar', 5 + player.score / 1000));
         break;
       }
       case 1: {
-        enemies.push(new Exponential(size, 'exponential', 5));
+        enemies.push(new Exponential(size, 'exponential', 5 + player.score / 1000));
         break;
       }
       default: break;
