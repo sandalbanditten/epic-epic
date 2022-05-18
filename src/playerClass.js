@@ -10,7 +10,8 @@ class Player {
 
   update() {
     //just updates the position in case the window has changed size
-    let size = this.diameter * this.startingLives;
+    let startingSize = this.diameter * this.startingLives;
+    let size = this.diameter * this.lives;
 
     //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward
     if(keyIsDown(87) && !keyIsDown(16)) {
@@ -46,7 +47,7 @@ class Player {
 
     // Playerspeed is dependent on the size
     this.speed = map(this.lives, 1, this.startingLives, 30, 1);
-    this.posX = width - size;
+    this.posX = width - startingSize;
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
 
