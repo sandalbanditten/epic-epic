@@ -10,6 +10,13 @@ function setup() {
 
   // requires a size, type and speed variables
   enemies.push(new Liniar(size, 'liniar', 5));
+  background(255, 41, 117);
+  // CSS SHIT
+  const shakeElement = document.body;
+  shakeElement?.classList.remove('shake');
+  void shakeElement?.offsetWidth; // Funky trick to allow the screen shake
+  shakeElement?.classList.add('shake');
+  // CSS SHIT
 }
 
 function draw() {
@@ -20,23 +27,29 @@ function draw() {
     enemies[i].show();
     if (enemies[i].x > width + enemies[i].diameter / 2) {
       enemies.shift();
-      switch(enemies[i].type) {
-        case 'liniar': {
-          player.score += 100;
-          break;
+      if (!player.isDead()) {
+        switch(enemies[i].type) {
+          case 'liniar': {
+            player.score += 100;
+            break;
+          }
+          case 'exponential': {
+            player.score += 150;
+            break;
+          }
+          case 'sincos': {
+            player.score += 250;
+            break;
+          }
+          default: break;
         }
-        case 'exponential': {
-          player.score += 150;
-          break;
-        }
-        default: break;
       }
     }
     player.collision(enemies[i]);
   }
 
-  if (frameCount % 20 == 0) {
-    switch(Math.floor(random(0, 100)) % 2) {
+  if (frameCount % 60 == 0) {
+    switch(Math.floor(random(0, 100)) % 3) {
       case 0: {
         enemies.push(new Liniar(size, 'liniar', 5 + player.score / 1000));
         break;
@@ -45,7 +58,15 @@ function draw() {
         enemies.push(new Exponential(size, 'exponential', 5 + player.score / 1000));
         break;
       }
-      default: break;
+      case 2: {
+        enemies.push(new SinCos(size, 'sincos', 5 + player.score / 1000));
+        console.log('balls');
+        break;
+      }
+      default: {
+        enemies.push(new Liniar(size, 'liniar', 5 + player.score / 1000));
+        break;
+      } 
     }
   }
 
