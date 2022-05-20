@@ -1,8 +1,10 @@
 class SinCos extends Enemy {
   constructor(size, type, speed) {
     super(size, type, speed);
+
+    this.bAr = [5, 10];
     this.a = random(-height / 2, height / 2);
-    this.b = 5;
+    this.b = this.bAr[int(random(0, 1))];
   }
 
   update() {
