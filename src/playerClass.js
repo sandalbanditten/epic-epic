@@ -41,7 +41,7 @@ class Player {
     // Playerspeed is dependent on the size
     this.speed = map(this.lives, 1, this.startingLives, 30, 5);
     this.posX = width - startingSize;
-    this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
+    this.posY = Math.min(Math.max(this.posY, 0 + size / 2), height - size / 2);
   }
 
   //visualisation of the fucker
@@ -84,7 +84,6 @@ class Player {
   //what!?!?! it also knows if it's dead?!?!?!
   isDead() {
     if(this.lives <= 0) {
-      background(255, 41, 117);
       // TODO
       return true;
     } else {

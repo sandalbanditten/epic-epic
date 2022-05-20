@@ -2,7 +2,7 @@ class Enemy
 {
   constructor(size, type, speed)
   {
-    this.diameter = size + random(-10,10);
+    this.diameter = size + random(-10,20);
     this.type = type;
     this.speed = speed;
 

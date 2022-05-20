@@ -22,56 +22,60 @@ function setup() {
 function draw() {
   background(4, 4, 51, 20);
 
-  for (let i = 0; i < enemies.length; i++) {
-    enemies[i].update();
-    enemies[i].show();
-    if (enemies[i].x > width + enemies[i].diameter / 2) {
-      enemies.shift();
-      if (!player.isDead()) {
-        switch(enemies[i].type) {
-          case 'liniar': {
-            player.score += 100;
-            break;
+  if (player.isDead()) {
+    background(4, 4, 51, 20);
+  } else {
+    if (enemies.length > 0) {
+      for (let i = 0; i < enemies.length; i++) {
+        enemies[i].update();
+        enemies[i].show();
+        if (enemies[i].x > width + enemies[i].diameter / 2) {
+          enemies.shift();
+          if (!player.isDead()) {
+            switch(enemies[i].type) {
+              case 'liniar': {
+                player.score += 100;
+                break;
+              }
+              case 'exponential': {
+                player.score += 150;
+                break;
+              }
+              case 'sincos': {
+                player.score += 250;
+                break;
+              }
+              default: break;
+            }
           }
-          case 'exponential': {
-            player.score += 150;
-            break;
-          }
-          case 'sincos': {
-            player.score += 250;
-            break;
-          }
-          default: break;
         }
+        player.collision(enemies[i]);
       }
     }
-    player.collision(enemies[i]);
-  }
 
-  if (frameCount % 60 == 0) {
-    switch(Math.floor(random(0, 100)) % 3) {
-      case 0: {
-        enemies.push(new Liniar(size, 'liniar', 5 + player.score / 1000));
-        break;
+    if (frameCount % 60 == 0) {
+      switch(Math.floor(random(0, 100)) % 3) {
+        case 0: {
+          enemies.push(new Liniar(size, 'liniar', 5));
+          break;
+        }
+        case 1: {
+          enemies.push(new Exponential(size, 'exponential', 5));
+          break;
+        }
+        case 2: {
+          enemies.push(new SinCos(size, 'sincos', 5));
+          break;
+        }
+        default: {
+          enemies.push(new Liniar(size, 'liniar', 5));
+          break;
+        } 
       }
-      case 1: {
-        enemies.push(new Exponential(size, 'exponential', 5 + player.score / 1000));
-        break;
-      }
-      case 2: {
-        enemies.push(new SinCos(size, 'sincos', 5 + player.score / 1000));
-        console.log('balls');
-        break;
-      }
-      default: {
-        enemies.push(new Liniar(size, 'liniar', 5 + player.score / 1000));
-        break;
-      } 
     }
+    player.update();
+    player.show();
   }
-
-  player.update();
-  player.show();
 
   showUi(player, width, height);
 }
