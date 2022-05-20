@@ -23,6 +23,15 @@ class Player {
       this.posY += this.speed;
     }
 
+    // Horizontal
+    if(keyIsDown(65)) {
+      this.posX -= this.speed;
+    }
+    //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes
+    if(keyIsDown(68)) {
+      this.posX += this.speed;
+    }
+
     // if(keyIsDown(32)) {
     //   if(!keyIsDown(87) && !keyIsDown(83)) {
     //     this.posY = height / 2;
@@ -40,7 +49,7 @@ class Player {
 
     // Playerspeed is dependent on the size
     this.speed = map(this.lives, 1, this.startingLives, 30, 5);
-    this.posX = width - startingSize;
+    this.posX = Math.min(Math.max(this.posX, 0 + size / 2), width - size / 2);
     this.posY = Math.min(Math.max(this.posY, 0 + size / 2), height - size / 2);
   }
 

@@ -53,7 +53,7 @@ function draw() {
       }
     }
 
-    if (frameCount % 60 == 0) {
+    if (frameCount % 30 == 0) {
       switch(Math.floor(random(0, 100)) % 3) {
         case 0: {
           enemies.push(new Liniar(size, 'liniar', 5));
