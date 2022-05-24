@@ -30,18 +30,6 @@ class Player {
       this.posY += 2 * this.speed;
     }
 
-    if(keyIsDown(32)) {
-      if(!keyIsDown(87) && !keyIsDown(83)) {
-        this.posY = height / 2;
-      }
-      if(keyIsDown(87)) {
-        this.posY = 0 + size;
-      }
-      if(keyIsDown(83)) {
-        this.posY = height - size;
-      }
-    }
-
     //when colission is true take a life
     this.isDead();
 
