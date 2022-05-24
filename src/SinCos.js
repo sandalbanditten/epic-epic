@@ -8,7 +8,7 @@ class SinCos extends Enemy {
   }
 
   update() {
-    this.d = this.y1 - this.a * sin(this.b * (this.x2 - this.diameter/2));
+    this.d = this.y2 - this.a * sin(this.b * (this.x2 - this.diameter/2));
 
     this.y = this.a * sin(this.b * (this.x)) + this.d;
     this.x += this.speed;
