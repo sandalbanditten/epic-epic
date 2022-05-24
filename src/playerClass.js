@@ -14,20 +14,19 @@ class Player {
     let size = this.diameter * this.lives;
 
     //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward
-    if(keyIsDown(87) && !keyIsDown(16)) {
+    if(keyIsDown(87)) {
       this.posY -= this.speed;
     }
     //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes
-    if(keyIsDown(83) && !keyIsDown(16)) {
+    if(keyIsDown(83)) {
       this.posY += this.speed;
     }
-    //keycode 87 is the "W" key, so when pressed it moves the player up, that is cause the y-axis in js goes downward - with shift for more speed
-    if(keyIsDown(87) && keyIsDown(16)) {
-      this.posY -= 2 * this.speed;
+
+    if(keyIsDown(65)) {
+      this.posX -= this.speed;
     }
-    //keycode 83 is the "S" key, when pressed move down, the higher the y-value the lower it goes - with shift for more speed
-    if(keyIsDown(83) && keyIsDown(16)) {
-      this.posY += 2 * this.speed;
+    if(keyIsDown(68)) {
+      this.posX += this.speed;
     }
 
     //when colission is true take a life
