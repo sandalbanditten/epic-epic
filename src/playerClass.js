@@ -6,6 +6,7 @@ class Player {
     this.startingLives = lives;
     this.posX = width - this.diameter * this.lives;
     this.posY = height / 2 - this.radius();
+    this.score = 0;
   }
 
   update() {
@@ -33,8 +34,8 @@ class Player {
     this.isDead();
 
     // Playerspeed is dependent on the size
-    this.speed = map(this.lives, 1, this.startingLives, 30, 1);
-    this.posX = width - startingSize;
+    this.speed = map(this.lives, 1, this.startingLives, 30, 5);
+    this.posX = Math.min(Math.max(this.posX, 0 + size), width - size);
     this.posY = Math.min(Math.max(this.posY, 0 + size), height - size);
   }
 
