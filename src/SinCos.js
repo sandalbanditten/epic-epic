@@ -5,6 +5,7 @@ class SinCos extends Enemy {
     this.bAr = [5, 10];
     this.a = random(-height / 2, height / 2);
     this.b = this.bAr[int(random(0, 1))];
+    
   }
 
   update() {
